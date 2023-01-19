@@ -5,4 +5,11 @@ https://gist.github.com/JV-conseil/9f9ee229f4a6494a5dd46865aa8f4bc7
 
 The data used in the project is stored in the SDU_data sub-folder folder
 
+To populate the database run the following commands in the root directory of the project
+(syntax for MacOS): 
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py import_data
+
 More about the work process in WORK_LOGS file (think of it as a lab notebook)
