@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.utils import timezone
 
 # Create the model for projects table
 # note: created fileds even for colums that are currently empty, 
@@ -35,33 +36,38 @@ class Projects(models.Model):
 # note: created fileds even for colums that are currently empty, 
 # in case they are needed later in the project
 class Organisations(models.Model):
-    projectID = models.IntegerField()
-    projectAcronym = models.CharField(max_length=20, null=True, blank=True)
-    organisationID = models.IntegerField(null=True, blank=True)
-    vatNumber = models.IntegerField(null=True, blank=True)
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
+    projectAcronym = models.CharField(max_length=30, null=True, blank=True)
+    organisationID = models.FloatField(null=True, blank=True)
+    vatNumber = models.CharField(max_length=20, null=True, blank=True)
     name = models.TextField(null=True, blank=True)
     shortName = models.TextField(null=True, blank=True)
     SME = models.CharField(max_length=3, null=True, blank=True); 
     activityType = models.CharField(max_length=3, null=True, blank=True)
     street = models.TextField(null=True, blank=True)
-    postCode = models.CharField(max_length=10, null=True, blank=True)
+    postCode = models.CharField(max_length=30, null=True, blank=True)
     city = models.TextField(null=True, blank=True)
-    country = models.CharField(max_length=2, null=True, blank=True)
-    nutsCode = models.IntegerField(null=True, blank=True)
-    latitude = models.DecimalField(max_digits=20, decimal_places=17, null=True, blank=True)
-    longitude = models.DecimalField(max_digits=20, decimal_places=17, null=True, blank=True)
+    country = models.CharField(max_length=30, null=True, blank=True)
+    nutsCode = models.CharField(max_length=30, null=True, blank=True)
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
+    # latitude = models.DecimalField(max_digits=22, decimal_places=20, null=True, blank=True)
+    # longitude = models.DecimalField(max_digits=22, decimal_places=20, null=True, blank=True)
     organizationURL = models.URLField()
     contactForm = models.URLField()
     contentUpdateDate = models.DateTimeField(null=True, blank=True)
-    rcn = models.IntegerField(null=True, blank=True)
-    order = models.IntegerField(null=True, blank=True)
+    rcn = models.FloatField(null=True, blank=True)
+    order = models.FloatField(null=True, blank=True)
     role = models.CharField(max_length=15, null=True, blank=True)
-    ecContribution = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-    netEcContribution = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-    totalCost = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    ecContribution = models.FloatField(null=True, blank=True)
+    netEcContribution = models.FloatField(null=True, blank=True)
+    totalCost = models.FloatField( null=True, blank=True)
+    # ecContribution = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    # netEcContribution = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    # totalCost = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     endOfParticipation = models.BooleanField(null=True, blank=True)
     active = models.BooleanField(null=True, blank=True)
     
     # this will help identify the model later, e.g. in error messages
     def __str__(self):
-        return self.projectAcronym
+        return self.shortName
