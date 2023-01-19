@@ -1,0 +1,36 @@
+This file is a lab notebook of sorts, keeping track of the work on the SDU exercise
+
+##### Saturday 14/1/2023
+- Thought about the exercise... 
+
+##### Sunday 14/1/2023
+- installed Django
+- installed PostgreSQL via Postgres.app
+- installed pgAdmin 4
+
+##### Monday 14/1/2023
+- Lerned about PostgreSQL and related
+- imported the data into PostgreSQL (see import_table.sql file)
+- familiarized with data during the process of importing. Several potential issues
+    -   A column name Order is a reserved word, see here, used "" to avoid issues when importing; possibly rename the column in the future. https://stackoverflow.com/questions/10891368/postgres-table-column-name-restrictions    
+    - organization.csv file has XXXXX in some fields
+    - organisations.csv sometimes uses , and not . for decimals
+    - projects.csv could not handle empty fileds if importing as TIMESTAMP/DATE type; temporary solution is to import as TEXT
+    - some rows have CLOSED instead of CLO as a value
+    - two data files have different stadards for decimal points, and one has "" around values, while the othe one does not. 
+
+
+##### Tuesday 14/1/2023
+- changed directions, decided to do the data import in Django
+- created a project in Django and made the first model
+
+##### Wednesday 14/1/2023
+- committed the first version of the project onto GitHub
+- imported organization.csv and projects.csv tables into Django as a pandas data frame
+- lots of time spent refining the models, organizing files and understanding the workflow better
+
+##### Wednesday 14/1/2023
+- data cleaning and resolving data issues, specifically
+    - missing data in date fields
+- successfully imported projects into the database
+
