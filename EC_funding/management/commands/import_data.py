@@ -62,12 +62,12 @@ class Command(BaseCommand):
             masterCall=row['masterCall'], subCall=row['subCall'],  fundingScheme=row['fundingScheme'],
             nature=row['nature'], objective=row['objective'], 
             rcn=row['rcn'], grantDoi=row['grantDoi'])
+        print ('Loaded Projects csv')
 
         
         ########### load organisation cvs file into a dataframe
         # added low_memory=False to avoid error message about mixed types 
         df = pd.read_csv("/Users/dule/django/SDU_exercise/SDU_data/csv/organization.csv", sep=';', low_memory=False) 
-        print ('csv file loaded')
 
 
         # print(df.loc[293:298, "organisationID"])

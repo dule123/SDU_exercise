@@ -8,6 +8,10 @@ This file is a lab notebook of sorts, keeping track of the work on the SDU exerc
 - installed PostgreSQL via Postgres.app
 - installed pgAdmin 4
 
+Some resources used: 
+https://www.w3schools.com/django/
+https://chat.openai.com/
+
 ##### Monday 14/1/2023
 - Lerned about PostgreSQL and related
 - imported the data into PostgreSQL (see import_table.sql file)

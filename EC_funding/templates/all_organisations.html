@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Organisations</h1>
+ 
+
+<div class="pagination">
+  {% if organisations.has_previous %}
+      <a href="?page={{ organisations.previous_page_number }}">previous</a>
+  {% endif %}
+  <span class="current-page">Page {{ organisations.number }} of {{ organisations.paginator.num_pages }}</span>
+  {% if organisations.has_next %}
+      <a href="?page={{ organisations.next_page_number }}">next</a>
+  {% endif %}
+</div>
+
+<ul>
+  {% for x in organisations %}
+    <li>{{ x.name }}, {{ x.country }}</li>
+  {% endfor %}
+</ul>
+
+<!-- 
+<ul>
+  {% for x in myorganisations %}
+    <li>{{ x.name }}, {{ x.country }}</li>
+  {% endfor %}
+</ul> -->
+
+</body>
+</html>

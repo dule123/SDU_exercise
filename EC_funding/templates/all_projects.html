@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Projects</h1>
+ 
+
+<div class="pagination">
+    {% if projects.has_previous %}
+        <a href="?page={{ projects.previous_page_number }}">previous</a>
+    {% endif %}
+    <span class="current-page">Page {{ projects.number }} of {{ projects.paginator.num_pages }}</span>
+    {% if projects.has_next %}
+        <a href="?page={{ projects.next_page_number }}">next</a>
+    {% endif %}
+  </div>
+  
+  <ul>
+    {% for x in projects %}
+      <li>{{ x.acronym }} - {{ x.title }}</li>
+    {% endfor %}
+  </ul>
+
+
+<!-- <ul>
+  {% for x in projects %}
+    <li>{{ x.acronym }}, {{ x.title }}</li>
+  {% endfor %}
+</ul> -->
+
+</body>
+</html>
