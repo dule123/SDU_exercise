@@ -4,7 +4,6 @@
 
 <h1>Projects</h1>
  
-
 <div class="pagination">
     {% if projects.has_previous %}
         <a href="?page={{ projects.previous_page_number }}">previous</a>
@@ -21,12 +20,6 @@
     {% endfor %}
   </ul>
 
-
-<!-- <ul>
-  {% for x in projects %}
-    <li>{{ x.acronym }}, {{ x.title }}</li>
-  {% endfor %}
-</ul> -->
 
 </body>
 </html>

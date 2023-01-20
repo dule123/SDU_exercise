@@ -38,3 +38,23 @@ https://chat.openai.com/
     - missing data in date fields
 - successfully imported projects into the database
 
+##### Thursday 14/1/2023
+- imported both tables into the database
+- made the connection between them
+- installed
+- lots of issue solving and corrections concerning the models, specifically
+    - how to load missing data
+    - how to hande dates without timezones attached
+    - how to handle IDs in both databases
+- worked on the app for the webpage, specifically
+    - landing page, 404 page
+    - paginated list of all projects and 
+- cleaned up some files/directories that were no longer needed or we in the directory by accident
+- at this point, bulk of the work is done!
+
+
+TODO wishlist 
+- more graphical representations
+- link home for all webpages
+- page for each project/organisation 
+- 

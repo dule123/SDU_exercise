@@ -51,8 +51,6 @@ class Organisations(models.Model):
     nutsCode = models.CharField(max_length=30, null=True, blank=True)
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
-    # latitude = models.DecimalField(max_digits=22, decimal_places=20, null=True, blank=True)
-    # longitude = models.DecimalField(max_digits=22, decimal_places=20, null=True, blank=True)
     organizationURL = models.URLField()
     contactForm = models.URLField()
     contentUpdateDate = models.DateTimeField(null=True, blank=True)
@@ -62,9 +60,6 @@ class Organisations(models.Model):
     ecContribution = models.FloatField(null=True, blank=True)
     netEcContribution = models.FloatField(null=True, blank=True)
     totalCost = models.FloatField( null=True, blank=True)
-    # ecContribution = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-    # netEcContribution = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-    # totalCost = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     endOfParticipation = models.BooleanField(null=True, blank=True)
     active = models.BooleanField(null=True, blank=True)
     
