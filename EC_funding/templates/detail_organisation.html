@@ -1,0 +1,34 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ myorganisation.name }}
+{% endblock %}
+
+
+{% block content %}
+    
+    <h1>{{ myorganisation.name }}</h1>
+    <h2>Full information </h2>
+
+    <p><b>organisationID:</b> {{ myorganisation.id }}</p> 
+    <p><b>vatNumber:</b> {{ myorganisation.vatNumber }}</p> 
+    <p><b>name:</b> {{ myorganisation.name }}</p> 
+    <p><b>shortName:</b> {{ myorganisation.shortName }}</p> 
+    <p><b>SME:</b> {{ myorganisation.SME }}</p> 
+    <p><b>activityType:</b> {{ myorganisation.activityType }}</p> 
+    <p><b>street:</b> {{ myorganisation.street }}</p> 
+    <p><b>postCode:</b> {{ myorganisation.postCode }}</p> 
+    <p><b>city:</b> {{ myorganisation.city }}</p> 
+    <p><b>country:</b> {{ myorganisation.country }}</p> 
+    <p><b>latitude:</b> {{ myorganisation.latitude }}</p> 
+    <p><b>longitude:</b> {{ myorganisation.longitude }}</p> 
+    <p><b>organizationURL:</b> {{ myorganisation.organizationURL }}</p> 
+    <p><b>contentUpdateDate:</b> {{ myorganisation.contentUpdateDate }}</p> 
+    <p><b>objective:</b> {{ myorganisation.objective }}</p> 
+    <p><b>rcn:</b> {{ myorganisation.rcn }}</p> 
+
+<br>
+<br>
+<p>Back to <a href="/organisations">Organisations</a></p>
+  
+{% endblock %}

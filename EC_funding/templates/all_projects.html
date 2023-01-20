@@ -18,10 +18,9 @@
   
   <ul>
     {% for x in projects %}
-      <li>{{ x.acronym }} - {{ x.title }}</li>
+      <li> <a href="detail_project/{{ x.id }}">  details </a> {{ x.acronym }} -  {{ x.title }}</li>
     {% endfor %}
   </ul>
-
 
 </body>
 </html>

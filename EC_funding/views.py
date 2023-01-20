@@ -7,9 +7,15 @@ from django.core.paginator import PageNotAnInteger
 from django.core.paginator import EmptyPage
 from django.shortcuts import render
 from django.db.models import Sum, F
+
+# next two lines prevent matplot lib from trying to graphically display the plot and avoid some error msgs
+import matplotlib as mpl
+mpl.use('Agg')
+
 import matplotlib.pyplot as plt
 from django.db.models.functions import Coalesce
 from decimal import Decimal
+from django.db.models import F, Case, When
 
 def main(request):
   template = loader.get_template('main.html')
@@ -18,7 +24,7 @@ def main(request):
 def organisations(request):
 
     # select onlt the unique organisations, based on the organisationID
-    myorganisations = Organisations.objects.distinct('organisationID').all().values()
+    myorganisations = Organisations.objects.all().values().order_by('name').distinct('name')
 
     # use paginator to display 100 organisations at the time 
     paginator = Paginator(myorganisations, 100)
@@ -35,7 +41,7 @@ def organisations(request):
 
 def projects(request):
 
-    myprojects = Projects.objects.all().values()
+    myprojects = Projects.objects.all().values().order_by('acronym')
 
     # use paginator to display 100 projects at the time 
     paginator = Paginator(myprojects, 100)
@@ -49,6 +55,21 @@ def projects(request):
 
     return render(request, 'all_projects.html', {'projects': projects})
 
+def detail_project(request, id):
+  myproject = Projects.objects.get(id=id)
+  template = loader.get_template('detail_project.html')
+  context = {
+    'myproject': myproject,
+  }
+  return HttpResponse(template.render(context, request))
+
+def detail_organisation(request, id):
+  myorganisation = Organisations.objects.get(id=id)
+  template = loader.get_template('detail_organisation.html')
+  context = {
+    'myorganisation': myorganisation,
+  }
+  return HttpResponse(template.render(context, request))
 
 def total_funds_per_country(request):
     # Query the database to get the total amount of funds per country
@@ -77,7 +98,9 @@ def total_funds_per_country(request):
     plt.ylabel('Total Funds (in €)')
 
     # Save the plot to a file
-    plt.savefig('total_funds_per_country.png')
+    plt.savefig('media/total_funds_per_country.png')
+
+    # plt.bar(countries, funds).savefig('total_funds_per_country.png')
 
     # Render the template and pass the file name to it
     return render(request, 'plot_funding.html', {'plot': 'total_funds_per_country.png'})

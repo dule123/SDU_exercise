@@ -1,0 +1,45 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ myproject.acronym }}
+{% endblock %}
+
+
+{% block content %}
+  <h1>Project: {{ myproject.title }} </h1>
+  <p></p>
+
+  <h2>Organisations involved </h2>
+
+{% for organisation in myproject.organisations_set.all %}
+
+{{organisation.name}}<br>
+
+{%endfor%}
+
+<h2>Full information </h2>
+
+<p><b>id:</b> {{ myproject.id }}</p> 
+<p><b>acronym:</b> {{ myproject.acronym }}</p> 
+<p><b>status:</b> {{ myproject.status }}</p> 
+<p><b>Tititle:</b> {{ myproject.title }}</p> 
+<p><b>startDate:</b> {{ myproject.startDate }}</p> 
+<p><b>endDate:</b> {{ myproject.endDate }}</p> 
+<p><b>totalCost:</b> {{ myproject.totalCost }}</p> 
+<p><b>ecMaxContribution:</b> {{ myproject.ecMaxContribution }}</p> 
+<p><b>legalBasis:</b> {{ myproject.legalBasis }}</p> 
+<p><b>topics:</b> {{ myproject.topics }}</p> 
+<p><b>ecSignatureDate:</b> {{ myproject.ecSignatureDate }}</p> 
+<p><b>frameworkProgramme:</b> {{ myproject.frameworkProgramme }}</p> 
+<p><b>masterCall:</b> {{ myproject.masterCall }}</p> 
+<p><b>subCall:</b> {{ myproject.subCall }}</p> 
+<p><b>nature:</b> {{ myproject.nature }}</p> 
+<p><b>objective:</b> {{ myproject.objective }}</p> 
+<p><b>contentUpdateDate:</b> {{ myproject.contentUpdateDate }}</p> 
+<p><b>rcn:</b> {{ myproject.rcn }}</p> 
+<p><b>grantDoi:</b> {{ myproject.grantDoi }}</p> 
+<br>
+<br>
+<p>Back to <a href="/projects">Projects</a></p>
+  
+{% endblock %}

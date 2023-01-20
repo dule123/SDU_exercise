@@ -19,7 +19,7 @@
 
 <ul>
   {% for x in organisations %}
-    <li>{{ x.name }}, {{ x.country }}</li>
+    <li><a href="detail_organisation/{{ x.id }}"> details </a>{{ x.name }}, {{ x.country }}</li>
   {% endfor %}
 </ul>
 
